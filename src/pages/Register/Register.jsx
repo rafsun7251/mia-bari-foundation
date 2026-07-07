@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { saveUserToDatabase } from "../../services/userService";
 
 const Register = () => {
   const { registerUser } = useAuth();
@@ -19,6 +20,8 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    console.log("Email:", formData.email);
+    console.log("Password:", formData.password);
 
     try {
       const result = await registerUser(
@@ -26,9 +29,12 @@ const Register = () => {
         formData.password
       );
 
-      console.log("Registered User:", result.user);
+    await saveUserToDatabase(
+    result.user,
+    formData.name
+    );
 
-      alert("Registration Successful!");
+alert("Registration Successful!");
 
     } catch (error) {
       alert(error.message);
