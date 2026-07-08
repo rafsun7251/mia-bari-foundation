@@ -6,9 +6,22 @@ export const saveUserToDatabase = async (user, name) => {
     uid: user.uid,
     name: name,
     email: user.email,
+
     role: "Pending",
-    committee: "",
-    status: "Active",
+    designation: "Pending",
+    department: "Pending",
+
+    status: "Pending",
+
+    memberId: "",
+
+    phone: "",
+    photoURL: "",
+
+    approvedBy: "",
+    approvedAt: "",
+
     createdAt: new Date().toISOString(),
+    lastLogin: new Date().toISOString(),
   });
 };

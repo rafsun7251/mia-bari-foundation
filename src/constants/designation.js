@@ -1,0 +1,25 @@
+export const DESIGNATIONS = [
+  "Chairman",
+  "Vice Chairman",
+  "Pro Vice Chairman",
+  "Secretary General",
+  "Joint Secretary",
+  "Assistant Secretary",
+  "Treasurer",
+  "Assistant Treasurer",
+  "Organizing Secretary",
+  "Publicity Secretary",
+  "Office Secretary",
+  "Assistant Office Secretary",
+
+  "Executive Member (Health)",
+  "Executive Member (Women's Affairs)",
+  "Executive Member (Publicity)",
+  "Executive Member (Education)",
+  "Executive Member (Sports)",
+  "Executive Member (Assistant Chairman)",
+  "Executive Member (Assistant Vice Chairman)",
+  "Executive Member (Disaster & Relief)",
+
+  "General Member",
+];
