@@ -1,21 +1,52 @@
-import useAuth from "../../hooks/useAuth";
+import { useEffect, useState } from "react";
+import StatCard from "../../components/dashboard/StatCard";
+import { getMemberCount } from "../../services/memberService";
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const [memberCount, setMemberCount] = useState(0);
+
+ useEffect(() => {
+  const loadData = async () => {
+    try {
+      const total = await getMemberCount();
+      setMemberCount(total);
+    } catch (error) {
+      console.error("Error loading member count:", error);
+    }
+  };
+
+  loadData();
+}, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-4xl font-bold text-[#0B6E4F]">
+    <div>
+      <h1 className="mb-8 text-3xl font-bold">
         Dashboard
       </h1>
 
-      <p className="mt-6 text-xl">
-        Welcome,
-      </p>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
-      <p className="text-lg font-semibold">
-        {user?.email}
-      </p>
+        <StatCard
+          title="Total Members"
+          value={memberCount}
+        />
+
+        <StatCard
+          title="Pending Members"
+          value="0"
+        />
+
+        <StatCard
+          title="Events"
+          value="0"
+        />
+
+        <StatCard
+          title="Notices"
+          value="0"
+        />
+
+      </div>
     </div>
   );
 };

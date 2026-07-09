@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import PendingMembers from "../pages/Dashboard/PendingMembers/PendingMembers";
+import Members from "../pages/Dashboard/Members/Members";
+import MemberProfile from "../pages/Dashboard/Members/MemberProfile";
 
 
 
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
 {
   path: "pending-members",
   element: <PendingMembers />,
+},
+{
+  path: "members/:id",
+  element: <MemberProfile />,
+},
+{
+  path: "members",
+  element: <Members />,
 },
   ],
 },
