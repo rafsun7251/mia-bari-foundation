@@ -29,14 +29,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-  {
-  path: "/dashboard",
-  element: (
-    <PrivateRoute>
-      <Dashboard />
-    </PrivateRoute>
-  ),
-},
+  
 {
   path: "/dashboard",
   element: (

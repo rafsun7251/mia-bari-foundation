@@ -50,3 +50,30 @@ export const getMemberCount = async () => {
   const snapshot = await getCountFromServer(collection(db, "users"));
   return snapshot.data().count;
 };
+export const getPendingMembers = async () => {
+  const q = query(
+    collection(db, "users"),
+    where("status", "==", "Pending")
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  const members = [];
+
+  querySnapshot.forEach((doc) => {
+    members.push({
+      id: doc.id,
+      ...doc.data(),
+    });
+  });
+
+  return members;
+};
+export const approveMember = async (id) => {
+  const memberRef = doc(db, "users", id);
+
+  await updateDoc(memberRef, {
+    status: "Active",
+    role: "Member",
+  });
+};
